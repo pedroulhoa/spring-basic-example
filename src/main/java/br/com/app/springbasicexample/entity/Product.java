@@ -1,5 +1,7 @@
 package br.com.app.springbasicexample.entity;
 
+import br.com.app.springbasicexample.dto.ProductDTO;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,11 +16,35 @@ public class Product {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "price")
+    private Double price;
+
+    @Column(name = "discount")
+    private Double discount;
+
     public Product() {
     }
 
-    public Product(String name) {
-        this.name = name;
+    public Product(ProductDTO product) {
+        this.name = product.getName();
+        this.price = product.getPrice();
+        this.discount = product.getDiscount();
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Double discount) {
+        this.discount = discount;
     }
 
     public Long getId() {
