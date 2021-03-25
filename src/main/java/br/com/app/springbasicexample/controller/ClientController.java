@@ -1,6 +1,6 @@
 package br.com.app.springbasicexample.controller;
 
-import br.com.app.springbasicexample.model.Client;
+import br.com.app.springbasicexample.entity.Client;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

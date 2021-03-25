@@ -1,4 +1,4 @@
-package br.com.app.springbasicexample.model;
+package br.com.app.springbasicexample.entity;
 
 public class Client {
 
