@@ -3,6 +3,9 @@ package br.com.app.springbasicexample.entity;
 import br.com.app.springbasicexample.dto.ProductDTO;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "product")
@@ -14,11 +17,15 @@ public class Product {
     private Long id;
 
     @Column(name = "name")
+    @NotBlank
     private String name;
 
     @Column(name = "price")
+    @Min(0)
     private Double price;
 
+    @Min(0)
+    @Max(1)
     @Column(name = "discount")
     private Double discount;
 
