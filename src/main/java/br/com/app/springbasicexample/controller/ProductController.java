@@ -18,7 +18,8 @@ public class ProductController {
     private ProductRepository productRepository;
 
     @PostMapping
-    public @ResponseBody Product create(@RequestBody @Valid ProductDTO p) {
+    public @ResponseBody
+    Product create(@RequestBody @Valid ProductDTO p) {
         Product product = new Product(p);
         productRepository.save(product);
         return product;
@@ -34,7 +35,7 @@ public class ProductController {
         return productRepository.findById(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(path = "/{id}")
     public ResponseEntity<Product> update(@RequestBody @Valid ProductDTO p, @PathVariable Long id) {
         Optional<Product> productOptional = productRepository.findById(id);
 
@@ -46,6 +47,11 @@ public class ProductController {
         productRepository.save(product);
 
         return ResponseEntity.ok().body(product);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public void delete(@PathVariable Long id) {
+        productRepository.deleteById(id);
     }
 
 }
