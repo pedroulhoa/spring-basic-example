@@ -6,6 +6,9 @@ public class ProductDTO {
     private Double price;
     private Double discount;
 
+    public ProductDTO() {
+    }
+
     public ProductDTO(String name, Double price, Double discount) {
         this.name = name;
         this.price = price;
