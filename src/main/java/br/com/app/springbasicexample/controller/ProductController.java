@@ -32,6 +32,11 @@ public class ProductController {
         return productRepository.findAll();
     }
 
+    @GetMapping(path = "/name/{part}")
+    public Iterable<Product> getProductsByName(@PathVariable String part) {
+        return productRepository.findByNameContaining(part);
+    }
+
     @GetMapping("/page/{numPage}")
     public Iterable<Product> getAllPagination(@PathVariable int numPage) {
         Pageable page = PageRequest.of(numPage, 2);
