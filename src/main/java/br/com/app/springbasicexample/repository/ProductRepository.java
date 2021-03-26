@@ -1,7 +1,7 @@
 package br.com.app.springbasicexample.repository;
 
 import br.com.app.springbasicexample.entity.Product;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface ProductRepository extends CrudRepository<Product, Long> {
+public interface ProductRepository extends PagingAndSortingRepository<Product, Long> {
 }

@@ -4,6 +4,8 @@ import br.com.app.springbasicexample.dto.ProductDTO;
 import br.com.app.springbasicexample.entity.Product;
 import br.com.app.springbasicexample.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,6 +30,12 @@ public class ProductController {
     @GetMapping
     public Iterable<Product> getAll() {
         return productRepository.findAll();
+    }
+
+    @GetMapping("/page/{numPage}")
+    public Iterable<Product> getAllPagination(@PathVariable int numPage) {
+        Pageable page = PageRequest.of(numPage, 2);
+        return productRepository.findAll(page);
     }
 
     @GetMapping(path = {"/{id}"})
